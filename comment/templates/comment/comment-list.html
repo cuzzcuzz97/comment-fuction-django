@@ -1,0 +1,9 @@
+
+<ol>
+{% for comment in comments %}
+    <li>{{comment.username}} : {{comment.description}}</li>
+{% endfor %}
+</ol>
+    
+
+{% include 'comment/comment-create.html' %}

@@ -1,0 +1,16 @@
+{% extends 'comment/base.html' %}
+{% block content %}
+{{post.title}}
+{{post.description}}
+
+{% for comment in comments  %}
+<div hx-target="this" hx-swap="outterHTML">
+    <p>{{comment.username}} : {{comment.description}}</p>
+</div>
+{% endfor %}
+
+<button hx-get="{% url 'comment-create' %}" hx-swap="beforeend" hx-target="#commentform">Add comment</button>
+<div id="commentform">
+</div>
+
+{% endblock content %}
