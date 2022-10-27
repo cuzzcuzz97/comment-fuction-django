@@ -2,11 +2,11 @@
     <form method="post" action=".">
         {% csrf_token %}
         {% if user.is_authenticated %}
-            <input type="text" name="username" value="{{user.username}}" readonly="readonly">
-            {{formcomment.description}}
+            {{replyform}}
         {% else %}
-        {{formcomment.as_p}}
+        {{replyform.as_p}}
         {% endif %}
+        <input type="hidden" name="target" value="{{target_id}}">
         <button>Submit</button>
     </form>
 </div>

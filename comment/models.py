@@ -16,7 +16,7 @@ class Comment(models.Model):
     commented_at = models.DateTimeField(auto_now_add=True)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     def __str__(self):
-        return f"{self.username} : {self.post}"
+        return f"{self.username} : {self.post} {self.description}"
 
 class Reply(models.Model):
     target = models.ForeignKey(Comment, on_delete=models.CASCADE)
